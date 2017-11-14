@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>YMS Homepage</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+  <link href="/stylesheets/style.css" rel="stylesheet" type="text/css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="/">FLNA YMS</a>   
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/gate">GATE</a></li>
+          <li><a href="/shunt">SHUNT</a></li>
+          <li><a href="/inventory">INVENTORY</a></li>
+          <li><a href="/reporting">REPORTING</a></li>
+          <li><a href="/contact">CONTACT</a></li>        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <div id="Gate" class="container-fluid">
+    <div class="row">
+      <div class="col-sm-8">
+        <h2>Gate Processing</h2>
+        <form>
+            <fieldset class="form-group">
+                <div class="row">
+                  <label class="col-form-legend col-sm-2">Activity</label>
+                  <div class="col-sm-2">
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="form-check-input col-auto" type="radio" name="arrivals" id="gridRadios1" value="option1" checked>
+                        Arrival
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-sm-2">
+                      <div class="form-check">
+                        <label class="form-check-label">
+                          <input class="form-check-input" type="radio" name="departures" id="gridRadios2" value="option2">
+                          Departure
+                        </label>
+                      </div>
+                    </div>
+                </div>
+              </fieldset>
+            <div class="form-group row">
+                <label for="inputTrailerID" class="col-sm-2 col-form-label">Trailer ID</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="inputTrailerID" placeholder="Trailer ID" required>
+                </div>
+              </div>
+          <div class="form-group row">
+            <label for="inputTrailerID" class="col-sm-2 col-form-label">RFID</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputTrailerID" placeholder="RFID" required>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputType" class="col-sm-2 col-form-label">Trailer Type</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputType" placeholder="Trailer Type" required>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputSCAC" class="col-sm-2 col-form-label">SCAC Code</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputSCAC" placeholder="SCAC Code" required>
+            </div>
+          </div>
+            <div class="form-group row">
+              <label for='StatusSelect' class="col-sm-2 col-form-label">Status</label>
+              <div class="col-sm-10">
+                <select class="form-control" id='StatusSelect'>
+                  <option>Empty</option>
+                  <option>Loaded</option>
+                  <option>Redtag-Empty</option>
+                  <option>Redtag-Loaded</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for='StatusSelect' class="col-sm-2 col-form-label">Commodity</label>
+              <div class="col-sm-10">
+                <select class="form-control" id='StatusSelect'>
+                  <option>Empty</option>
+                  <option>Finished Goods</option>
+                  <option>Carts and KDs</option>
+                  <option>Potatoes</option>
+                  <option>Raw Materials</option>
+                  <option>Seasoning</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-2">Seal Intact</div>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox"> Intact
+                    </label>
+                  </div>
+                </div>
+              </div>
+      </div>
+    </div>
+          <div class="form-group row">
+            <div class="col-sm-10">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-4">
+      </div>
+    </div>
+  </div>
+  
+
+
+<footer class="container-fluid text-center">
+  <a href="#myPage" title="To Top">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a>
+  <p>Developed by Andrew Ginther</p>
+</footer>
+
+<script>
+$(document).ready(function(){
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script>
+
+</body>
+</html>
